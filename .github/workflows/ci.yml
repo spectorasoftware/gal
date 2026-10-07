@@ -24,11 +24,11 @@ jobs:
       ios_changed: ${{ steps.filter.outputs.ios }}
       android_changed: ${{ steps.filter.outputs.android }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Filter changes
         id: filter
-        uses: dorny/paths-filter@v3
+        uses: dorny/paths-filter@0e4a8c6effa4802afeda77dc8d303f8176d7dfad # v3.0.4
         with:
           filters: |
             common:

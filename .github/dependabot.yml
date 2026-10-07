@@ -9,7 +9,16 @@ updates:
     directory: "/example"
     schedule:
       interval: "weekly"
+  # Keeps the SHA-pinned actions (and their "# vX.Y.Z" comments) current.
   - package-ecosystem: "github-actions"
     directory: "/" 
     schedule:
       interval: "weekly"
+    # Wait a week before proposing a new release, so a compromised or
+    # yanked release has time to be caught upstream first.
+    cooldown:
+      default-days: 7
+    groups:
+      github-actions:
+        patterns:
+          - "*"
